@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Notas Colegio</title>
+		<meta charset="utf-8">
+  		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+		<script type="text/javascript" src="js/scripts.js"></script>
+	</head>
+	
+	<body>
+		<div>
+			<br>
+			<h1>Registro</h1>
+			<br>
+			<form id="formEstudiante" class="test">
+				Codigo:<br>
+  				<input id='codigo' type="text" name="codigo"><br>
+  				Nombre:<br>
+  				<input id='nombre' type="text" name="nombre"><br>
+  				Nota:<br>
+  				<input id='nota' type="text" name="nota"><br><br>
+			</form>
+			<input id="guardarEstudiante" type="submit" value="Guardar"><br>
+			<br>
+		</div>	
+		<div>
+			<div class="btn-group btn-group">
+				<button id="mostrarNotas" type="button" class="btn btn-outline-info btn-block">Mostrar Notas</button>
+				<button id="calcularNotaPromedio" type="button" class="btn btn-outline-info">Calcular Nota Promedio</button>
+				<button id="estudianteNotaMayor" type="button" class="btn btn-outline-info">Nota mayor</button>
+				<button id="estudianteNotaMenor" class="btn btn-outline-info">Nota menor</button>
+			</div>
+			<br>
+			<h1>Listado</h1>
+			<br>
+			<div>
+				<a class="text-muted" id="resultados"></a>
+			</div>
+		</div>
+	</body>
+</html>

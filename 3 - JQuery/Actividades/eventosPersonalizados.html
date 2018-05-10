@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script src="jquery.js"></script>
+	<title>Eventos Personalizados</title>
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+			var clientes = [];
+
+			$("#boton1").click(function(){
+				resgistarCliente();
+				$(document).trigger("descuento");
+			});
+
+			$(document).on("descuento", function(event,param1,param2){
+
+				var totalCompra = parseFloat($("#cjtxt3").val());
+				var nombre = $("#cjtxt2").val();
+
+				if (totalCompra>50000) {
+					alert("El cliente"+nombre+"gano un bono de $ 10.000");
+				} 
+
+				limpiarCampos();
+				listarClientes();
+			});
+
+			function resgistarCliente(){
+
+				var id=$("#cjtxt1").val();
+				var nombre = $("#cjtxt2").val();
+				var totalCompra = parseFloat($("#cjtxt3").val());
+
+				var cliente = {
+					id: id,
+					nombre: nombre,
+					totalCompra:totalCompra
+				}
+
+				clientes.push(cliente);
+				alert("Cliente registrado");
+			}
+
+			function listarClientes(){
+
+				var lista="<h1>Clientes</h1>";
+				var id=$("#cjtxt1").val();
+				var nombre = $("#cjtxt2").val();
+				var totalCompra = parseFloat($("#cjtxt3").val());
+
+				for (var i = 0; i < clientes.length; i++) {
+					lista += "<b>Id: </b>"+clientes[i].id+"<b>Nombre: </b>"+clientes[i].nombre+"<b>Total Compra: </b>"+clientes[i].totalCompra+"<br>";
+				}
+				$("#clientes").html(lista);
+			}
+
+			function limpiarCampos(){
+				$("#cjtxt1").val("");
+				$("#cjtxt2").val("");
+				$("#cjtxt3").val("");
+			}
+
+		});
+
+
+	</script>
+</head>
+<body>
+	<h1>Datos del cliente</h1>
+	<label for="cjtxt1">Id</label>
+	<input type="text" id="cjtxt1">
+	<br>
+	<br>
+	<label for="cjtxt2">Nombre</label>
+	<input type="text" id="cjtxt2">
+	<br>
+	<br>
+	<label for="cjtxt3">Total Compra</label>
+	<input type="text" id="cjtxt3">
+	<br>
+	<br>
+	<input id="boton1" type="button" value="Registrar Cliente">
+	<p id="clientes"></p>
+</body>
+</html>

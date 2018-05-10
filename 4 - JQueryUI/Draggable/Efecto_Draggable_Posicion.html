@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Efecto Draggable Posicion</title>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.js"></script>
+	<style type="text/css">
+		#miDiv1{
+			position: absolute;
+			top: 55%;
+			left: 55%;
+			width: 200px;
+			height: 200px;
+			margin-left: -400px;
+			margin-top: -100px;
+			border: 1px solid #808080;
+			padding: 10px;
+			background: #FF473A;
+
+		}
+	</style>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			
+			$("#miDiv1").draggable({
+				cursor:'move',
+				containment: 'document',
+				stop: eventoStop
+			});
+
+			function eventoStop(event, ui) {
+				var posX = parseInt(ui.offset.left);
+				var posY = parseInt(ui.offset.top);
+				mensaje = "Posicion X: "+posX+" - Posicion Y: "+posY;
+				$("#posicion").html(mensaje);
+			}
+
+		});
+
+	</script>
+</head>
+<body>
+	<H1> EJEMPLO funcionalidad Arrastar y posicion jquery UI</H1>
+	<h2 id="posicion"></h2>
+	<div id="miDiv1">Mi Div 1!!!</div>
+</body>
+</html>

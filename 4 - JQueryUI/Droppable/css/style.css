@@ -1,0 +1,27 @@
+#arrastrar{
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	margin:10px 10px 10px 10px;
+	background: #ff5500;
+	text-align: center;
+	color: #fff;
+	border-radius: 50px;
+
+}
+
+#soltar{
+	position: absolute;
+	width: 200px;
+	height: 200px;
+	margin:100px 10px 10px 600px;
+	background: #777777;
+	text-align: center;
+	color: #fff;
+	border-radius: 50px;
+
+}
+
+h4{
+	margin: 40% 0 0 0;
+}

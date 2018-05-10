@@ -1,0 +1,107 @@
+<!Doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Datos Empresa</title>
+</head>
+<body>
+	<h1> Datos de la Empresa</h1>
+	
+	<br>
+	<label for="cjtxt1">Nit</label>
+	<input type="text" id="cjtxt1">
+	<br>
+
+	<br>
+	<label for="cjtxt2">Nombre</label>
+	<input type="text" id="cjtxt2">
+	<br>
+
+	<br>
+	<label for="cjtxt3">Direccion</label>
+	<input type="text" id="cjtxt3">
+	<br>
+
+	<br>
+	<label for="cjtxt4">Email</label>
+	<input type="text" id="cjtxt4">
+	<br>
+
+	<br>
+	<label for="cjtxt5">Pagina web</label>
+	<input type="text" id="cjtxt5">
+	<br>
+
+	<input type="button" value="Registrar Empresa" onclick="registarEmpresa()"/>
+	<br>
+	<input type="button" value="Mostar Empresa" onclick="mostarEmpresa()"/>
+	<br>
+
+	<p id="mensaje"></p>
+</body>
+
+<script type="text/javascript">
+	
+	var empresa ={
+		Nit:null,
+		Nombre:null,
+		Direccion:null,
+		Email:null,
+		PaginaWeb:null,
+
+		init:function(propiedades){
+			empresa.propiedades = propiedades;
+		},
+
+		leerPropiedades : function(){
+			return empresa.propiedades;
+		}
+	};
+
+	function registarEmpresa(){
+
+		var Nit_obtenido = document.getElementById("cjtxt1").value;
+		var Nombre_obtenido = document.getElementById("cjtxt2").value;
+		var Direccion_obtenido = document.getElementById("cjtxt3").value;
+		var Email_obtenido = document.getElementById("cjtxt4").value;
+		var PaginaWeb_obtenido = document.getElementById("cjtxt5").value;
+
+		var propiedades = {
+			Nit:Nit_obtenido,
+			Nombre:Nombre_obtenido,
+			Direccion:Direccion_obtenido,
+			Email:Email_obtenido,
+			PaginaWeb:PaginaWeb_obtenido,
+		}
+
+		empresa.init(propiedades);
+		limpiarCampos();
+		alert("Empresa Guardada");
+	}
+
+	function mostarEmpresa(){
+
+		var mensaje = "<h1>Empresa</h1><br>"
+		var propiedades = empresa.leerPropiedades();
+
+		mensaje +="Nit"+propiedades.Nit+"<br>";
+		mensaje +="Nombre"+propiedades.Nombre+"<br>";
+		mensaje +="Direccion"+propiedades.Direccion+"<br>";
+		mensaje +="Email"+propiedades.Email+"<br>";
+		mensaje +="PaginaWeb"+propiedades.PaginaWeb+"<br>";
+
+		document.getElementById("mensaje").innerHTML = mensaje;
+	}
+
+	function limpiarCampos(){
+
+		document.getElementById("cjtxt1").value="";
+		document.getElementById("cjtxt2").value="";
+		document.getElementById("cjtxt3").value="";
+		document.getElementById("cjtxt4").value="";
+		document.getElementById("cjtxt5").value="";
+
+	}
+
+</script>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+	<head></head>
+	<body>
+		<h1>Operadores</h1>
+		<p id="operador"></p>
+
+		<h1>Fechas y horas</h1>
+		<p id="date"></p>
+
+		<h1>Array</h1>
+		<p id="Array"></p>
+
+	</body>
+
+	<script>
+		var a = 8
+		var b = 10
+		var  operador = a > b ;
+		document.getElementById("operador").innerHTML = operador;
+
+		var date= new Date();
+		document.getElementById("date").innerHTML = date;
+
+		var pruebaArray = new Array("pos1","pos2","pos3");
+		pruebaArray[pruebaArray.length]="ultimapos";
+		document.getElementById("Array").innerHTML = pruebaArray;		
+
+
+
+	</script>
+
+
+</html>

@@ -1,0 +1,23 @@
+.miFrom fieldset p label span.error{
+	color: red;
+}
+
+form.miForm{
+	width: 30em;
+	background-color: #40FF80;
+}
+form.miForm legend,
+form.miForm label{
+	color: #1711C4;
+}
+form.miForm fieldset{
+	border: 1px solid #999;
+	border-radius: 8px;
+	border-color: #1711C4;
+	box-shadow: 0 0 10px #999;
+}
+form.miForm label{
+	width: auto;
+	display: block;
+	float: none;
+}

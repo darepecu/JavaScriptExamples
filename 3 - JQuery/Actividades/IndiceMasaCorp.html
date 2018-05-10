@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="jquery.js"></script>
+	<script type="text/javascript">
+		
+		$(document).ready(function(){
+
+			var persona = {
+				nombre:null,
+				edad:null,
+				estatura:null,
+				peso:null,
+
+				init:function(propiedades){
+					persona.propiedades = propiedades;
+
+				},
+				leerPropieades: function(){
+					return persona.propiedades;
+				}
+
+
+			};
+
+			$("#boton1").click(function(){
+				var getnombre = $("#cjtxt1").val();
+				var getedad = $("#cjtxt2").val();
+				var getestatura = $("#cjtxt3").val();
+				var getpeso = $("#cjtxt4").val();
+
+				var propiedades={
+					nombre:getnombre,
+					edad:getedad,
+					estatura:getestatura,
+					peso:getpeso
+
+				}
+
+				persona.init(propiedades);
+				limpiarCampos();
+
+				alert("Persona Guardada");
+
+
+			});
+	
+			$("#boton2").click(function(){
+
+				var mensaje ="<h1>Persona</h1>";
+				var propiedades = persona.leerPropieades();
+				mensaje += "Nombre: "+ propiedades.nombre+"<br>";
+				mensaje += "Edad: "+ propiedades.edad+"<br>";
+				mensaje += "Estatura: "+ propiedades.estatura+"<br>";
+				mensaje += "Peso: "+ propiedades.peso+"<br>";
+
+				$("#Mensaje1").html(mensaje);
+
+			});
+
+			$("#boton3").click(function(){
+
+				var mensaje = "<h1>IMC</h1>";
+
+				var propiedades = persona.leerPropieades();
+				var estatura = propiedades.estatura;
+				var peso = propiedades.peso;
+
+				var imc = peso/Math.pow(estatura,2);
+				var estado="";
+
+				if (imc<18.5) {
+					estado="Flaco";
+				} else if(imc>=18.5 && imc<25){
+					estado="Normal";
+				} else if(imc >=25 && imc<30){
+					estado="Ligero sobrepeso";
+				}else{
+					estado = "Obesidad";
+				}
+				mensaje+="El indice de masa corporal de "+propiedades.nombre+" es: "+imc+" por tal razon u estado es "+"<b>"+estado;+"</b>"+"<br>";
+
+				$("#Mensaje2").html(mensaje);
+
+			});
+
+			function limpiarCampos(){
+
+				$("#cjtxt1").val("");
+				$("#cjtxt2").val("");
+				$("#cjtxt3").val("");
+				$("#cjtxt4").val("");
+
+			}
+
+		});
+
+	</script>
+
+	<title></title>
+</head>
+<body>
+	<h1>Datos de la persona</h1>
+
+	<label for="cjtxt1">Nombre</label>
+	<input type="text" id="cjtxt1">
+	<br>
+	<br>
+	<label for="cjtxt2">Edad</label>
+	<input type="text" id="cjtxt2">
+	<br>
+	<br>
+	<label for="cjtxt3">Estatura</label>
+	<input type="text" id="cjtxt3">
+	<br>
+	<br>
+	<label for="cjtxt4">Peso</label>
+	<input type="text" id="cjtxt4">
+	<br>
+	<br>
+	<input id="boton1" type="button" value="Registar persona">
+	<input id="boton2" type="button" value="Mostar persona">
+	<input id="boton3" type="button" value="Calcular IMC">
+
+	<p id="Mensaje1"></p>
+	<p id="Mensaje2"></p>
+
+</body>
+</html>

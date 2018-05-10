@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script src="jquery.js"></script>
+	<script type="text/javascript">
+		
+		$(document).ready(function(){
+			$("#boton1").click(function(){
+
+				var mensaje = "<h1>Ids</h1>";
+				var idIput = $("#miInput").attr("id");
+				var idEnca = $("#miEnca").attr("id");
+				var idTabla = $("#miTabla").attr("id");
+				var idImagen = $("#miImagen").attr("id");
+
+				mensaje +=idIput+"<br>";
+				mensaje +=idEnca+"<br>";
+				mensaje +=idTabla+"<br>";
+				mensaje +=idImagen+"<br>";
+
+				$("#mensaje1").html(mensaje);
+			});
+
+			$("#boton2").click(function(){
+				$("#miInput").attr("size","100");
+				$("#miInput").attr("placeholder","Cambio de placeholder!!");
+
+			});
+
+			$("#boton3").click(function(){
+				$("#miEnca").attr("align","right");
+
+			});
+
+			$("#boton4").click(function(){
+				$("#miTabla").attr("border","5");
+				$("#miTabla").attr("cellpadding","10");
+			});
+
+			$("#boton5").click(function(){
+				$("#miImagen").attr("src","imagen2.png");
+
+			});
+
+		});
+
+
+	</script>
+	<title></title>
+</head>
+<body>
+	<input type="text" id="miInput" size="30" placeholder="Ingrese un dato">
+	<h1 id="miEnca" align="center">Santafe el primer Campeon</h1>
+	<table id="miTabla" border="1" cellpadding="5">
+		<tr>
+			<td>Rojo</td>
+			<td>Verde</td>
+		</tr>
+		<tr>
+			<td>Verde</td>
+			<td>naranja</td>
+		</tr>
+	</table>
+	<img id="miImagen" width="200" height="200" src="imagen1.png">
+	<p id="mensaje1"></p>
+	<br>
+	<br>
+	<button id="boton1">Mostar Ids</button>
+	<button id="boton2">Cambiar Input</button>
+	<button id="boton3">Cambiar Encabezado</button>
+	<button id="boton4">Cambiar Tabla</button>
+	<button id="boton5">Cambiar imagen</button>
+
+</body>
+</html>

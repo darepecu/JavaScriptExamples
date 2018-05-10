@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Notas Colegio</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/estudiantes.js"></script>
+	</head>
+	
+	<body>
+		<div>
+			<br>
+			<h1>Registro</h1>
+			<br>Codigo:<br>
+			<input id='codigo' type="text" name="codigo" disabled="true">
+			<br>Nombre:<br>
+			<input id='nombre' type="text" name="nombre">
+			<br>Nota:<br>
+			<input id='nota' type="text" name="nota"><br><br>
+			<input id="guardarEstudiante" type="submit" value="Guardar"><br>
+			<br>
+		</div>	
+		<div>
+			<div class="btn-group btn-group">
+				<button id="calcularNotaPromedio" type="button" class="btn btn-outline-info">Calcular Nota Promedio</button>
+				<button id="estudianteNotaMayor" type="button" class="btn btn-outline-info">Nota mayor</button>
+				<button id="estudianteNotaMenor" type="button" class="btn btn-outline-info">Nota menor</button>
+			</div>
+			<br>
+			<h1>Listado</h1>
+			<br>
+			<div>
+				<a class="text-muted" id="resultados"></a>
+			</div>
+		</div>
+	</body>
+</html>

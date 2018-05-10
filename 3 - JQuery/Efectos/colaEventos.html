@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Efectos jquery</title>
+	<style type="text/css">
+		#miDiv1{
+			width: 200px;
+			height: 200px;
+			background-color: green;
+			font-size: 25px;
+			color: white;
+		}
+		#miDiv2{
+			width: 200px;
+			height: 200px;
+			background-color: purple;
+			font-size: 30px;
+			color: white;
+		}
+		#miDiv3{
+			width: 200px;
+			height: 200px;
+			background-color: orange;
+			font-size: 40px;
+			color: white;
+		}
+	</style>
+	<script src="js/jquery.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			
+			$("#boton1").click(function(){
+				numeroEfectos();
+				efectosDiv1();
+				efectosDiv2();
+				efectosDiv3();
+			});
+
+			$("#boton2").click(function(){
+				jQuery.queue($("div")[0],"fx",[]);
+				$("div").stop();
+			});
+
+			function numeroEfectos(){
+				setInterval(function(){
+					var numFuncionesEnCola= $("#miDiv1").queue().length;
+					$("#numeroEfectos").html("Numeros de Efectos en Cola"+numFuncionesEnCola);
+				},1000);
+			}
+
+			function efectosDiv1(){
+				$("#miDiv1").show("fast")
+							.animate({
+								right:"+=400"
+							},1000)
+							.slideToggle(2000)
+							.slideToggle("fast")
+							.animate({
+								left:"-=400"
+							},2000)
+							.hide("slow")
+							.show(1000)
+							.slideUp("normal",efectosDiv1);
+			}
+
+			function efectosDiv2(){
+				var miDiv2 =$("#miDiv2");
+				miDiv2.queue(function(){
+
+					$(this).css({
+						"background-color":"grey",
+					});
+					$(this).dequeue();
+
+					miDiv2.hide(2000);
+					miDiv2.show(2000);
+					miDiv2.fadeIn(3000);
+					miDiv2.fadeOut(3000);
+					miDiv2.show(1000,efectosDiv2);
+
+				});
+			}
+
+			function efectosDiv3(){
+
+				var miDiv3 =$("#miDiv3");
+				miDiv3.fadeIn(2000);
+				miDiv3.fadeOut(1000);
+				miDiv3.hide(2000);
+				miDiv3.show(1000);
+				miDiv3.slideToggle(1000,efectosDiv3);
+			}
+
+		});
+
+	</script>
+</head>
+<body>
+	<button id="boton1">Iniciar Cola Efectos</button>
+	<button id="boton2">Parar Cola Efectos</button>
+
+	<p id="numeroEfectos"></p>
+
+	<div id="miDiv1">Este es mi primer Div!!!</div>
+	<div id="miDiv2">Este es mi segundo Div!!!</div>
+	<div id="miDiv3">Este es mi tercer Div!!!</div>
+
+</body>
+</html>
