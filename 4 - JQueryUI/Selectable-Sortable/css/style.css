@@ -1,0 +1,40 @@
+.position{
+	font-weight: bold;
+	font-size: 12px;
+	background-color: #9CFFA7;
+	width: 50px;
+
+}
+
+#seleccionar .ui-selecting{
+	background: #AFEEEE;
+	width: 100px;
+}
+
+#seleccionar .ui-selected{
+	background: #40E0D0;
+	width: 100px;
+}
+
+.miProducto{
+	background-color: #E920B3;
+}
+
+#productos .ui-selected{
+	color: red;
+	background: #FFF415;
+	font-weight: bold;
+}
+
+#productos{
+	margin:0;
+	padding: 0;
+	list-style-type: none;
+	width: 300px;
+
+}
+
+#productos li{
+	margin: 5px;
+	padding: 5px;
+}
