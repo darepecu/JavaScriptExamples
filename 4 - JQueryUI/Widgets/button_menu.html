@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejemplo</title>
+	<link rel="stylesheet" href="css/jquery-ui.css">
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery-ui.js"></script>
+
+	<script type="text/javascript">
+		$(function() {
+			$("button, p, h1")
+			.button()
+			.click(function(event){
+				event.preventDefault();
+			});
+			$("#carros").menu();
+			$("#cuadro").dialog();
+		});
+	</script>
+
+	<style type="text/css">
+		.ui-menu{ width: 200px; }
+	</style>
+
+</head>
+<body>
+
+	<h2>Botones</h2>
+	<button> Etoqueta Button</button>
+
+	<h1> Etiqueta h1 </h1>
+	<p> Etiqueta P</p>
+
+	<h2>Menu</h2>
+	<ul id="carros">
+		
+		<li>Nissan</li>
+		<li>Hyunday
+			<ul>
+				<li>ion</li>
+				<li>picanto</li>
+				<li>h2</li>
+			</ul>
+		</li>
+		<li class="ui-state-disabled">Kia</li>
+	</ul>
+
+	<div id="cuadro" title="Cuadro de dialogo">
+		<p>Aqui esta el mensaje</p>
+	</div>
+
+</body>
+</html>
