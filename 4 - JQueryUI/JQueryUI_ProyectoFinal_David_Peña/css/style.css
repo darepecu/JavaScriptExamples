@@ -1,0 +1,19 @@
+.div-black {
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	background-color: black;
+}
+
+.div-white {
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	background-color: white;
+}
+
+#tablero{
+	width: 400px;
+	height: 482px;
+	border: solid; 
+}
