@@ -15,5 +15,47 @@
 #tablero{
 	width: 400px;
 	height: 482px;
-	border: solid; 
+	border: solid;
+	margin-left:auto; 
+    margin-right:auto;  
+}
+
+.turnoRojo{
+	width: 100px;
+	height: 50px;
+	border: solid;
+    background-color: red;
+}
+
+.turnoAzul{
+	width: 100px;
+	height: 50px;
+	border: solid;
+    background-color: blue;  
+}
+
+.fichaRoja {
+	position: absolute;
+	width: 35px;
+	height: 35px;
+	background-color: red;
+	margin-top: 10px;
+  	margin-left: 6px;
+  	border-radius: 25px;
+  	-webkit-box-shadow: 3px 4px 16px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 3px 4px 16px 0px rgba(0,0,0,0.75);
+	box-shadow: 3px 4px 16px 0px rgba(0,0,0,0.75);
+}
+
+.fichaAzul {
+	position: absolute;
+	width: 35px;
+	height: 35px;
+	background-color: blue;
+	margin-top: 10px;
+  	margin-left: 6px;
+  	border-radius: 25px;
+  	-webkit-box-shadow: 3px 4px 16px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 3px 4px 16px 0px rgba(0,0,0,0.75);
+	box-shadow: 3px 4px 16px 0px rgba(0,0,0,0.75);
 }
