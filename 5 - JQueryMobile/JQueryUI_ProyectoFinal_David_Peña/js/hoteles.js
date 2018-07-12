@@ -16,18 +16,20 @@ $(document).ready(function() {
     var latitudPunto;
     var longitudPunto;
 
-    function Hotel(nombre, ciudad, telefono, estrellas) {
+    function Hotel(nombre, ciudad, telefono, estrellas, latitudPunto_input, longitudPunto_input) {
         this.nombre = nombre;
         this.ciudad = ciudad;
         this.telefono = telefono;
         this.estrellas = estrellas;
+        this.latitudPunto = latitudPunto_input;
+        this.longitudPunto = longitudPunto_input;
     }
    
 
     $("#RegistrarHotel").click(function() {
 
         cambiarPagina("RegistroHoteles");
-        mostrarMapa();
+        mostrarMapaRegistro();
 
         $("#GuardarHotel").click(function() {
 
@@ -37,7 +39,7 @@ $(document).ready(function() {
             var estrellas = $("#estrellas").val();
 
             if ((nombreHotel!="")&&(ciudad!="")&&(telefono!="")&&(estrellas!="")) {
-                hoteles_array.push(new Hotel(nombreHotel, ciudad, telefono, estrellas));
+                hoteles_array.push(new Hotel(nombreHotel, ciudad, telefono, estrellas, latitudPunto, longitudPunto));
             }
             limpiarCampos();
             cambiarPagina("home");
@@ -70,6 +72,8 @@ $(document).ready(function() {
                 dataHotelSeleccionado += "Estrellas: "+hoteles_array[this.id]["estrellas"] + "<br>";
 
                 $("#DatosHoteles").html(dataHotelSeleccionado);
+
+                mostrarMapaDetalleHotel(hoteles_array[this.id]["latitudPunto"], hoteles_array[this.id]["longitudPunto"]);
              });
         }
 
@@ -82,7 +86,7 @@ $(document).ready(function() {
         $("#estrellas").val("");
     }
 
-    function mostrarMapa() {
+    function mostrarMapaRegistro() {
         
         var opciones = {            
             zoom: 10,
@@ -90,7 +94,7 @@ $(document).ready(function() {
             mapTypeId: google.maps.MapTypeId.ROADMAP        
         };
 
-         mapaRegistro = new google.maps.Map(document.getElementById("mapaRegistro"), opciones);   
+         mapaRegistro = new google.maps.Map(document.getElementById("divMapaRegistro"), opciones);   
 
          marcadorRegistro = new google.maps.Marker({            
             position: latlngInicial,
@@ -103,6 +107,26 @@ $(document).ready(function() {
             latitudPunto = event.latLng.lat();
             longitudPunto = event.latLng.lng();
         });    
+    }
+
+    function mostrarMapaDetalleHotel(latitud, longitud) {
+
+        var opciones = {            
+            zoom: 3,
+            center: latlngInicial,
+            mapTypeId: google.maps.MapTypeId.ROADMAP        
+        };
+
+                
+        var mapa = new google.maps.Map(document.getElementById("divMapaDetalleHotel"), opciones);    
+
+            var latlngnN = new google.maps.LatLng(latitud, longitud );
+            var marcador = new google.maps.Marker({            
+                position: latlngnN,
+                map: mapa,
+                title: "UBICACION HOTEL"        
+            }); 
+     
     }
     
 
