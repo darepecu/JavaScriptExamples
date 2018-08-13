@@ -1,0 +1,64 @@
+
+<div class="blog-header">
+  <h1 class="blog-title">{{car.name}}</h1>
+  <p class="lead blog-description">{{car.description}}</p>
+</div>
+<div class="row">
+
+  <div class="col-sm-7 blog-main">
+    <div class="car-images">
+      <img ng-src="{{img}}"
+           class="car"
+           ng-repeat="img in car.images"
+           ng-class="{active: mainImageUrl==img}">
+    </div>
+  </div>
+
+  <div class="col-sm-5 blog-sidebar">
+    <ul class="car-thumbs">
+      <li ng-repeat="img in car.images">
+        <img ng-src="{{img}}" ng-click="setImage(img)">
+      </li>
+    </ul>
+  </div>
+
+</div>
+
+<ul class="specs">
+  <li>
+    <span>Engine</span>
+    <dl>
+      <dt>Type</dt>
+      <dd>{{car.engine.type}}</dd>
+      <dt>Gears</dt>
+      <dd>{{car.engine.gears}}</dd>
+      <dt>Transmission</dt>
+      <dd>{{car.engine.transmission}}</dd>
+    </dl>
+  </li>
+  <li>
+    <span>Comfort</span>
+    <dl>
+      <dt>Space</dt>
+      <dd>{{car.space.volume}}</dd>
+    </dl>
+  </li>
+  <li>
+    <span>Manufacter</span>
+    <dl>
+      <dt>Name</dt>
+      <dd>{{car.manufacter.name}}</dd>
+      <dt>Country</dt>
+      <dd>{{car.manufacter.country}}</dd>
+    </dl>
+  </li>
+  <li>
+    <span>Size and Weight</span>
+    <dl>
+      <dt>Dimensions</dt>
+      <dd ng-repeat="dim in car.sizeAndWeight.dimensions">{{dim}}</dd>
+      <dt>Weight</dt>
+      <dd>{{car.sizeAndWeight.weight}}</dd>
+    </dl>
+  </li>
+</ul>

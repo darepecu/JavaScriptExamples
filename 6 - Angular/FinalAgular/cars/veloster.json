@@ -1,0 +1,32 @@
+{
+    "manufacter": {
+        "name": "Hyundai", 
+        "country": "South Korea"
+    }, 
+    "engine": {
+        "gears": "6", 
+        "transmission": "Manual", 
+        "type": "Petrol"
+    }, 
+    "description": "SPORTY LIKE A COUPE. ROOMY LIKE A SEDAN.",  
+    "id": "veloster", 
+    "images": [
+        "img/cars/hyundai veloster.jpg",
+        "img/cars/hyundai veloster2.jpg",
+        "img/cars/hyundai veloster3.jpg",
+        "img/cars/hyundai veloster4.jpg",
+        "img/cars/hyundai veloster5.jpg"
+    ], 
+    "name": "Veloster", 
+    "sizeAndWeight": {
+        "dimensions": [
+            "1399.5 mm (w)", 
+            "1595.8 mm (h)", 
+            "4218.9 mm (l)"
+        ], 
+        "weight": "1211.0 Kg"
+    }, 
+    "space": {
+        "volume": "15.5L"
+    }
+}
